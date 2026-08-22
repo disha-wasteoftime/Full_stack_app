@@ -27,7 +27,11 @@ app = FastAPI(
 # Allow the React frontend (running on a different port/domain) to call this API.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # tighten this to your deployed frontend URL before submission
+    allow_origins=[
+        "https://full-stack-app-d24v.vercel.app",
+        "http://127.0.0.1:5173",  # keep local dev working too
+        "http://localhost:5173",
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
